@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="MainGUIs" default="create" basedir=".">
+
+	<!--init property-->
+	<target name="init" >
+		<property name="jar_filename" value="ModelBuilderSrc.jar"/>
+		<property name="manifest_filename" value="mc.mf"/>
+		<property name="main_class" value="main.MainGUI"/>
+	</target>
+
+	<!-- create -->
+	<target name="create" depends="init">
+
+		<!-- create manifest file -->
+	    <manifest file="${manifest_filename}">
+			<attribute name="Main-Class" value="${main_class}"/>
+	    </manifest>
+
+		<!-- create jar file -->
+		<jar jarfile="${jar_filename}"
+			manifest="${manifest_filename}"
+    		basedir="../../work"
+			includes="env/**, exalge/**, main/**, role/**, script/**, time/**, util/**, view/**"
+		/>
+
+		<!-- remove manifest file -->
+		<delete file="${manifest_filename}" />
+
+		<!-- remove work file -->
+		<delete dir="../../work" />
+
+	</target>
+
+	<!-- clean -->
+	<target name="clean" depends="init">
+		<delete file="${jar_filename}" />
+		<delete dir="../../work" />
+	</target>
+
+	<!-- copy -->
+	<target name="copy" depends="init">
+		<mkdir dir="../../work" />
+		<copy todir="../../work">
+			<fileset dir="../../lib" />
+			<fileset dir="../../src" />
+		</copy>
+	</target>
+
+</project>

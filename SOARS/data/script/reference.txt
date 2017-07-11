@@ -1,0 +1,343 @@
+println			
+Paragraph methods list 	 	 	 
+Definition class 	Method signature 	Leading line parameter legend 	Following line parameter legend 
+ 	 	   [ ] can be abbreviated	    blank means same as left
+ 	 	   \t  column separator 	 
+ 	 	   ... can be repeated	 
+env.ObjectLoader	classURL	{class_path}	
+script.ScriptParser	data	{item_parameter} [ \t {item_parameter}]...	
+script.ScriptParser	ignore	{ignored}	
+env.ObjectLoader	initialStage	{stage_name}	
+script.ScriptParser	item	{item_method} [ \t {item_method}]...	{ignored}
+script.ScriptParser	itemData	{item_method} [ \t {item_method}]...	{item_parameter} [ \t {item_parameter}]...
+script.ScriptParser	print	{message}	
+script.ScriptParser	println	{message}	
+env.ObjectLoader	role	{role_type} [ : {super_role_type}]... [ \t {class_name}]	
+env.ObjectLoader	spot	[>]{spot_name} [ \t {command_formula}]...	
+env.ObjectLoader	stage	{stage_name}	
+env.ObjectLoader	terminalStage	{stage_name}	
+			
+println			
+Item methods list 	 	 	 
+Definition class 	Method signature 	Parameter legend 	 
+ 	 	   [ ] can be abbreviated	 
+env.ObjectLoader	agentCommand	[{command_formula}]	
+env.ObjectLoader	agentCreate	{ignored}	
+env.ObjectLoader	agentInitialize	{ignored}	
+env.ObjectLoader	agentName	{agent_name}	
+env.ObjectLoader	agentNumber	[{integer_number}]	
+main.MainConsole	dumpAgents	[{title}]	
+main.MainGUI	dumpAgents (override)	[{title}]	
+main.MainConsole	dumpAgentsToConsole	[{title}]	
+main.MainGUI	dumpAgentsToTab	[{title}]	
+main.MainConsole	dumpSpots	[{title}]	
+main.MainGUI	dumpSpots (override)	[{title}]	
+main.MainConsole	dumpSpotsToConsole	[{title}]	
+main.MainGUI	dumpSpotsToTab	[{title}]	
+env.ObjectLoader	envLoad	{file_path}	
+env.ObjectLoader	envRandomSeed	[{integer_number}]	
+env.ObjectLoader	envSave	{file_path}	
+env.ObjectLoader	envStartTime	[+]{time}	
+env.ObjectLoader	envStepTime	{time}	
+main.MainConsole	execUntil	[[+]{time}]	
+script.ScriptParser	ignore	{ignored}	
+main.MainConsole	logAddAgents	{regular_expression}	
+main.MainConsole	logAddSpots	{regular_expression}	
+main.MainConsole	logAgents	{agent_prop_key}	
+main.MainConsole	logAgentsToConsole	{ignored}	
+main.MainConsole	logAgentsToFile	{file_head}	
+main.MainGUI	logAgentsToTab	{title_head}	
+main.MainConsole	logMkdirs	{directory_path}	
+main.MainConsole	logSpots	{spot_prop_key}	
+main.MainConsole	logSpotsToConsole	{ignored}	
+main.MainConsole	logSpotsToFile	{file_head}	
+main.MainGUI	logSpotsToTab	{title_head}	
+main.MainConsole	logStartTime	[+]{time}	
+main.MainConsole	logStepTime	[{time}]	
+script.ScriptParser	print	{message}	
+script.ScriptParser	println	{message}	
+env.ObjectLoader	ruleCommand	[{command_formula}]	
+env.ObjectLoader	ruleCondition	[{condition_formula}]	
+env.ObjectLoader	ruleCreate	[{debug_message}]	
+env.ObjectLoader	ruleInfo	[{debug_message}]	
+env.ObjectLoader	ruleNextStage	[{stage_name}]	
+env.ObjectLoader	ruleRole	[{role_type}]	
+env.ObjectLoader	ruleStage	[{stage_name}]	
+env.ObjectLoader	spotCommand	[{command_formula}]	
+env.ObjectLoader	spotCreate	{ignored}	
+env.ObjectLoader	spotInitialize	{ignored}	
+env.ObjectLoader	spotName	{spot_name}	
+env.ObjectLoader	spotNumber	[{integer_number}]	
+			
+println			
+Rule methods list 	 	 	 
+Definition class 	Method signature 	Parameter legend 	 
+ 	   ~ command method only (not returns boolean)	   [ ] can be abbreviated	 
+ 	   <> with spot prefix	 	 
+role.RoleStructure	~activateRole	[{role_type or role_key}]	
+role.RoleStructure	~<>activateRole	{role_type or role_key}	
+role.RoleForSpots	<>addAgent	{col_key}[={agent_name}]	
+role.RoleStructure	addAgent	{col_key}[={agent_name}]	
+role.RoleForSpots	<>addAll	{dest_col_key}={src_col_key}	
+role.RoleStructure	addAll	{dest_col_key}={src_col_key}	
+role.RoleForSpots	<>addEquip	{col_key}={equip_key}	
+role.RoleStructure	addEquip	{col_key}={equip_key}	
+role.RoleForSpots	~<>addFirstAgent	{list_key}[={agent_name}]	
+role.RoleStructure	~addFirstAgent	{list_key}[={agent_name}]	
+role.RoleForSpots	~<>addFirstEquip	{list_key}={equip_key}	
+role.RoleStructure	~addFirstEquip	{list_key}={equip_key}	
+role.RoleForSpots	~<>addFirstSpot	{list_key}[={spot_name}]	
+role.RoleStructure	~addFirstSpot	{list_key}[={spot_name}]	
+role.RoleForSpots	~<>addFirstString	{list_key}={string}	
+role.RoleStructure	~addFirstString	{list_key}={string}	
+role.RoleForSpots	~<>addLastAgent	{list_key}[={agent_name]	
+role.RoleStructure	~addLastAgent	{list_key}[={agent_name]	
+role.RoleForSpots	~<>addLastEquip	{list_key}={equip_key}	
+role.RoleStructure	~addLastEquip	{list_key}={equip_key}	
+role.RoleForSpots	~<>addLastSpot	{list_key}[={spot_name}]	
+role.RoleStructure	~addLastSpot	{list_key}[={spot_name}]	
+role.RoleForSpots	~<>addLastString	{list_key}={string}	
+role.RoleStructure	~addLastString	{list_key}={string}	
+role.RoleForSpots	~<>addParam	{invoker_key}[={equip_key or invoker_key}[={class_name}]]	
+role.RoleStructure	~addParam	{invoker_key}[={equip_key or invoker_key}[={class_name}]]	
+role.RoleForSpots	~<>addParamAgent	{invoker_key}[={agent_name}]	
+role.RoleStructure	~addParamAgent	{invoker_key}[={agent_name}]	
+role.RoleForSpots	~<>addParamBoolean	{invoker_key}={equip_key or invoker_key}[={class_name}]	
+role.RoleStructure	~addParamBoolean	{invoker_key}={equip_key or invoker_key}[={class_name}]	
+role.RoleForSpots	~<>addParamClass	{invoker_key}[={class_name}]	
+role.RoleStructure	~addParamClass	{invoker_key}[={class_name}]	
+role.RoleForSpots	~<>addParamSpot	{invoker_key}[={spot_name}]	
+role.RoleStructure	~addParamSpot	{invoker_key}[={spot_name}]	
+role.RoleForSpots	~<>addParamString	{invoker_key}[={string}]	
+role.RoleStructure	~addParamString	{invoker_key}[={string}]	
+role.RoleForSpots	<>addSpot	{col_key}[={spot_name}]	
+role.RoleStructure	addSpot	{col_key}[={spot_name}]	
+role.RoleForSpots	<>addString	{col_key}={string}	
+role.RoleStructure	addString	{col_key}={string}	
+role.RoleForSpots	~<>askAll	{col_key}={string}	
+role.RoleStructure	~askAll	{col_key}={string}	
+role.RoleForSpots	<>askEquip	{equip_key}[={string}]	
+role.RoleStructure	askEquip	{equip_key}[={string}]	
+role.RoleStructure	~attachTo	{agent_name}	
+role.RoleStructure	~<>attachToAll	{agents_col_key}	
+role.RoleStructure	~attachToAll	{agents_col_key}	
+role.RoleStructure	~<>attachToFirst	{agents_list_key}	
+role.RoleStructure	~attachToFirst	{agents_list_key}	
+role.RoleStructure	~<>attachToLast	{agents_list_key}	
+role.RoleStructure	~attachToLast	{agents_list_key}	
+role.RoleStructure	~<>attachToMax	{agents_sortedset_key}	
+role.RoleStructure	~attachToMax	{agents_sortedset_key}	
+role.RoleStructure	~<>attachToMin	{agents_sortedset_key}	
+role.RoleStructure	~attachToMin	{agents_sortedset_key}	
+role.RoleStructure	~<>attachToOne	{agents_col_key}	
+role.RoleStructure	~attachToOne	{agents_col_key}	
+role.RoleStructure	~<>attachToRandomOne	{agents_col_key}	
+role.RoleStructure	~attachToRandomOne	{agents_col_key}	
+role.RoleForSpots	~<>clearMap	{map_key}	
+role.RoleStructure	~clearMap	{map_key}	
+role.RoleForSpots	~<>cloneEquip	{dest_key}[={src_key}]	
+role.RoleStructure	~cloneEquip	{dest_key}[={src_key}]	
+role.RoleForSpots	<>containsAgent	{col_key}[={agent_name}]	
+role.RoleStructure	containsAgent	{col_key}[={agent_name}]	
+role.RoleForSpots	<>containsAll	{dest_col_key}={src_col_key}	
+role.RoleStructure	containsAll	{dest_col_key}={src_col_key}	
+role.RoleForSpots	<>containsEquip	{col_key}={equip_key}	
+role.RoleStructure	containsEquip	{col_key}={equip_key}	
+role.RoleForSpots	<>containsKey	{map_key}={{key}}	
+role.RoleStructure	containsKey	{map_key}={{key}}	
+role.RoleForSpots	<>containsSpot	{col_key}[={spot_name}]	
+role.RoleStructure	containsSpot	{col_key}[={spot_name}]	
+role.RoleForSpots	<>containsString	{col_key}={string}	
+role.RoleStructure	containsString	{col_key}={string}	
+role.RoleForSpots	<>containsValue	{map_key}={{value}}	
+role.RoleStructure	containsValue	{map_key}={{value}}	
+role.RoleForSpots	~<>copy	{dest_prop_key}={src_prop_key}	
+role.RoleStructure	~copy	{dest_prop_key}={src_prop_key}	
+role.RoleForSpots	~<>copyEquip	{dest_equip_key}={src_equip_key}	
+role.RoleStructure	~copyEquip	{dest_equip_key}={src_equip_key}	
+role.RoleStructure	~<>copyInstance	{equip_key or invoker_key}[={equip_key or invoker_key}]	
+role.RoleStructure	~copyInstance	{equip_key or invoker_key}[={equip_key or invoker_key}]	
+role.RoleForSpots	~<>createAgent	{name_head}[={create_number}[={role_type}]]	
+role.RoleForSpots	~createAgent	{name_head}[={create_number}[={role_type}]]	
+role.RoleStructure	~detach		
+role.RoleForSpots	~<>detachAll	{agents_col_key}	
+role.RoleStructure	~detachAll	{agents_col_key}	
+role.RoleForSpots	~<>detachFirst	{agents_list_key}	
+role.RoleStructure	~detachFirst	{agents_list_key}	
+role.RoleForSpots	~<>detachLast	{agents_list_key}	
+role.RoleStructure	~detachLast	{agents_list_key}	
+role.RoleForSpots	~<>detachMax	{agents_sortedset_key}	
+role.RoleStructure	~detachMax	{agents_sortedset_key}	
+role.RoleForSpots	~<>detachMin	{agents_sortedset_key}	
+role.RoleStructure	~detachMin	{agents_sortedset_key}	
+role.RoleForSpots	~<>detachOne	{agents_col_key}	
+role.RoleStructure	~detachOne	{agents_col_key}	
+role.RoleForSpots	~<>detachRandomOne	{agents_col_key}	
+role.RoleStructure	~detachRandomOne	{agents_col_key}	
+role.RoleStructure	~doSelfResolution		
+role.RoleForSpots	<>equals	{dest_prop_key}={src_prop_key}	
+role.RoleStructure	equals	{dest_prop_key}={src_prop_key}	
+role.RoleForSpots	<>equalsEquip	{dest_equip_key}={src_equip_key}	
+role.RoleStructure	equalsEquip	{dest_equip_key}={src_equip_key}	
+role.RoleForSpots	~<>equip	{dest_equip_key}[={src_prop_key}]	
+role.RoleStructure	~equip	{dest_equip_key}[={src_prop_key}]	
+role.RoleForSpots	~<>equipFirst	{equip_key}={list_key}	
+role.RoleStructure	~equipFirst	{equip_key}={list_key}	
+role.RoleForSpots	~<>equipLast	{equip_key}={list_key}	
+role.RoleStructure	~equipLast	{equip_key}={list_key}	
+role.RoleForSpots	~<>equipMapKeys	{equip_key}={map_key}	
+role.RoleStructure	~equipMapKeys	{equip_key}={map_key}	
+role.RoleForSpots	~<>equipMapValues	{equip_key}={map_key}	
+role.RoleStructure	~equipMapValues	{equip_key}={map_key}	
+role.RoleForSpots	~<>equipMax	{equip_key}={sortedset_key}	
+role.RoleStructure	~equipMax	{equip_key}={sortedset_key}	
+role.RoleForSpots	~<>equipMin	{equip_key}={sortedset_key}	
+role.RoleStructure	~equipMin	{equip_key}={sortedset_key}	
+role.RoleForSpots	~<>equipOne	{equip_key}={col_key}	
+role.RoleStructure	~equipOne	{equip_key}={col_key}	
+role.RoleForSpots	~<>equipRandomOne	{equip_key}={col_key}	
+role.RoleStructure	~equipRandomOne	{equip_key}={col_key}	
+role.RoleForSpots	FALSE		
+role.RoleForSpots	~<>get	{self_prop_key}[={spot_prop_key}]	
+role.RoleForSpots	~<>getEquip	{self_equip_key}[={spot_equip_key}]	
+role.RoleForSpots	~<>getField	{equip_key or invoker_key}={invoker_key}={field_name}	
+role.RoleForSpots	~<>getMap	{equip_key}={map_key}={{key}}	
+role.RoleStructure	~getMap	{equip_key}={map_key}={{key}}	
+role.RoleForSpots	<>invokeClass	[{equip_key or invoker_key}=]{invoker_name}={method_name}	
+role.RoleStructure	invokeClass	[{equip_key or invoker_key}=]{invoker_name}={method_name}	
+role.RoleForSpots	<>invokeEquip	[[{dest_equip_key} ]< ]{equip_key}={method_name} < {src_equip_key}	
+role.RoleStructure	invokeEquip	[[{dest_equip_key} ]< ]{equip_key}={method_name} < {src_equip_key}	
+role.RoleForSpots	<>is	{prop_key}={string}	
+role.RoleStructure	is	{prop_key}={string}	
+role.RoleForSpots	<>isEmpty	{col_key}	
+role.RoleStructure	isEmpty	{col_key}	
+role.RoleForSpots	<>isEmptyMap	{map_key}	
+role.RoleStructure	isEmptyMap	{map_key}	
+role.RoleForSpots	<>isEquip	{equip_key}[={class_name}]	
+role.RoleStructure	isEquip	{equip_key}[={class_name}]	
+role.RoleForSpots	<>isFirstAgent	{list_key}[={agent_name}]	
+role.RoleStructure	isFirstAgent	{list_key}[={agent_name}]	
+role.RoleForSpots	<>isFirstEquip	{list_key}={equip_key}	
+role.RoleStructure	isFirstEquip	{list_key}={equip_key}	
+role.RoleForSpots	<>isFirstSpot	{list_key}[={spot_name}]	
+role.RoleStructure	isFirstSpot	{list_key}[={spot_name}]	
+role.RoleForSpots	<>isFirstString	{list_key}={string}	
+role.RoleStructure	isFirstString	{list_key}={string}	
+role.RoleForSpots	<>isLastAgent	{list_key}[={agent_name}]	
+role.RoleStructure	isLastAgent	{list_key}[={agent_name}]	
+role.RoleForSpots	<>isLastEquip	{list_key}={equip_key}	
+role.RoleStructure	isLastEquip	{list_key}={equip_key}	
+role.RoleForSpots	<>isLastSpot	{list_key}[={spot_name}]	
+role.RoleStructure	isLastSpot	{list_key}[={spot_name}]	
+role.RoleForSpots	<>isLastString	{list_key}={string}	
+role.RoleStructure	isLastString	{list_key}={string}	
+role.RoleForSpots	<>isMaxAgent	{sortedset_key}[={agent_name}]	
+role.RoleStructure	isMaxAgent	{sortedset_key}[={agent_name}]	
+role.RoleForSpots	<>isMaxEquip	{sortedset_key}={equip_key}	
+role.RoleStructure	isMaxEquip	{sortedset_key}={equip_key}	
+role.RoleForSpots	<>isMaxSpot	{sortedset_key}[={spot_name}]	
+role.RoleStructure	isMaxSpot	{sortedset_key}[={spot_name}]	
+role.RoleForSpots	<>isMaxString	{sortedset_key}={string}	
+role.RoleStructure	isMaxString	{sortedset_key}={string}	
+role.RoleForSpots	<>isMinAgent	{sortedset_key}[={agent_name}]	
+role.RoleStructure	isMinAgent	{sortedset_key}[={agent_name}]	
+role.RoleForSpots	<>isMinEquip	{sortedset_key}={equip_key}	
+role.RoleStructure	isMinEquip	{sortedset_key}={equip_key}	
+role.RoleForSpots	<>isMinSpot	{sortedset_key}[={spot_name}]	
+role.RoleStructure	isMinSpot	{sortedset_key}[={spot_name}]	
+role.RoleForSpots	<>isMinString	{sortedset_key}={string}	
+role.RoleStructure	isMinString	{sortedset_key}={string}	
+role.RoleStructure	isRole	[[{role_key}=]{role_type}]	
+role.RoleForSpots	<>isRole	[{role_key}=]{role_type}	
+role.RoleForSpots	<>isSpot	[{spot_key}]	
+role.RoleForSpots	<>isTime	[@]{time or time_key}	
+role.RoleStructure	isTime	[@]{time or time_key}	
+role.RoleForSpots	~<>keyword	{prop_key}[={string}]	
+role.RoleStructure	~keyword	{prop_key}[={string}]	
+role.RoleForSpots	~<>logEquip	{dest_prop_key}[={src_equip_key}]	
+role.RoleStructure	~logEquip	{dest_prop_key}[={src_equip_key}]	
+role.RoleStructure	~<>moveTo		
+role.RoleForSpots	~<>moveToAll	{agents_col_key}	
+role.RoleStructure	~<>moveToFirst	{spots_list_key}	
+role.RoleStructure	~moveToFirst	{spots_list_key}	
+role.RoleStructure	~<>moveToLast	{spots_list_key}	
+role.RoleStructure	~moveToLast	{spots_list_key}	
+role.RoleStructure	~<>moveToMax	{spots_sortedset_key}	
+role.RoleStructure	~moveToMax	{spots_sortedset_key}	
+role.RoleStructure	~<>moveToMin	{spots_sortedset_key}	
+role.RoleStructure	~moveToMin	{spots_sortedset_key}	
+role.RoleStructure	~<>moveToOne	{spots_col_key}	
+role.RoleStructure	~moveToOne	{spots_col_key}	
+role.RoleStructure	~<>moveToRandomOne	{spots_col_key}	
+role.RoleStructure	~moveToRandomOne	{spots_col_key}	
+role.RoleForSpots	~<>newInstance	[{equip_key or invoker_key}=]{invoker_key}	
+role.RoleStructure	~newInstance	[{equip_key or invoker_key}=]{invoker_key}	
+role.RoleForSpots	~nextStage	{stage_name}	
+role.RoleForSpots	~<>printEquip	{dest_prop_key}[={src_equip_key}]	
+role.RoleStructure	~printEquip	{dest_prop_key}[={src_equip_key}]	
+role.RoleForSpots	~<>put	{spot_prop_key}[={self_prop_key}]	
+role.RoleForSpots	~<>putEquip	{spot_equip_key}[={self_equip_key}]	
+role.RoleForSpots	~<>putMap	[{equip_key}=]{map_key}={{key}}={{value}}	
+role.RoleStructure	~putMap	[{equip_key}=]{map_key}={{key}}={{value}}	
+role.RoleForSpots	~<>putMapAll	{dest_map_key}={src_map_key}	
+role.RoleStructure	~putMapAll	{dest_map_key}={src_map_key}	
+role.RoleForSpots	<>removeAgent	{col_key}[={agent_name}]	
+role.RoleStructure	removeAgent	{col_key}[={agent_name}]	
+role.RoleForSpots	<>removeAll	{dest_col_key}[={src_col_key}]	
+role.RoleStructure	removeAll	{dest_col_key}[={src_col_key}]	
+role.RoleForSpots	<>removeEquip	{col_key}={equip_key}	
+role.RoleStructure	removeEquip	{col_key}={equip_key}	
+role.RoleForSpots	~<>removeFirst	[{equip_key}=]{list_key}	
+role.RoleStructure	~removeFirst	[{equip_key}=]{list_key}	
+role.RoleForSpots	~<>removeLast	[{equip_key}=]{list_key}	
+role.RoleStructure	~removeLast	[{equip_key}=]{list_key}	
+role.RoleForSpots	~<>removeMap	[{equip_key}=]{map_key}={{key}}	
+role.RoleStructure	~removeMap	[{equip_key}=]{map_key}={{key}}	
+role.RoleForSpots	~<>removeMax	[{equip_key}=]{sortedset_key}	
+role.RoleStructure	~removeMax	[{equip_key}=]{sortedset_key}	
+role.RoleForSpots	~<>removeMin	[{equip_key}=]{sortedset_key}	
+role.RoleStructure	~removeMin	[{equip_key}=]{sortedset_key}	
+role.RoleForSpots	~<>removeOne	[{equip_key}=]{col_key}	
+role.RoleStructure	~removeOne	[{equip_key}=]{col_key}	
+role.RoleForSpots	~<>removeRandomOne	[{equip_key}=]{col_key}	
+role.RoleStructure	~removeRandomOne	[{equip_key}=]{col_key}	
+role.RoleForSpots	<>removeSpot	{col_key}[={spot_name}]	
+role.RoleStructure	removeSpot	{col_key}[={spot_name}]	
+role.RoleForSpots	<>removeString	{col_key}={string}	
+role.RoleStructure	removeString	{col_key}={string}	
+role.RoleForSpots	<>retainAll	{dest_col_key}={src_col_key}	
+role.RoleStructure	retainAll	{dest_col_key}={src_col_key}	
+role.RoleForSpots	~<>reverseAll	{list_key}	
+role.RoleStructure	~reverseAll	{list_key}	
+role.RoleForSpots	~<>rotateAll	{list_key}=[-]{distance_value or distance_key}	
+role.RoleStructure	<>rotateAll	{list_key}=[-]{distance_value or distance_key}	
+role.RoleForSpots	~<>set	{prop_key}[={string}]	
+role.RoleStructure	~set	{prop_key}[={string}]	
+role.RoleForSpots	~<>setAll	{col_key}={prop_key}={string}	
+role.RoleStructure	~setAll	{col_key}={prop_key}={string}	
+role.RoleForSpots	~<>setClass	{invoker_key}={class_name}	
+role.RoleStructure	~setClass	{invoker_key}={class_name}	
+role.RoleForSpots	~<>setEquip	{equip_key}[={class_name}]	
+role.RoleStructure	~setEquip	{equip_key}[={class_name}]	
+role.RoleForSpots	~<>setField	{invoker_key}={field_name}	
+role.RoleStructure	~setField	{invoker_key}={field_name}	
+role.RoleForSpots	~<>setParamType	{invoker_key}={class_name}	
+role.RoleStructure	~setParamType	{invoker_key}={class_name}	
+role.RoleForSpots	~<>setRole	{role_key}[={role_type}]	
+role.RoleStructure	~setRole	{role_key}[={role_type}]	
+role.RoleForSpots	~<>setSpot	{spot_key}	
+role.RoleForSpots	~<>setTime	{time_key}[[+|-]={time}]	
+role.RoleStructure	~setTime	{time_key}[[+|-]={time}]	
+role.RoleForSpots	~<>shuffleAll	{list_key}	
+role.RoleStructure	~shuffleAll	{list_key}	
+role.RoleForSpots	~<>sortAll	{list_key}	
+role.RoleStructure	~sortAll	{list_key}	
+role.RoleForSpots	~<>startRule	[{role_type}]	
+role.RoleForSpots	~<>startRuleAll	{col_key}[={role_type}]	
+role.RoleStructure	~startRuleAll	{col_key}[={role_type}]	
+role.RoleForSpots	~stopRule		
+role.RoleForSpots	terminate		
+role.RoleForSpots	trace		
+role.RoleForSpots	traceOff		
+role.RoleForSpots	TRUE		
+			
