@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="grid3" default="create" basedir=".">
+
+	<!--init property-->
+	<target name="init" >
+		<property name="jar_filename" value="../grid3.jar"/>
+	</target>
+
+	<!-- create -->
+	<target name="create" depends="init">
+
+		<!-- create jar file -->
+		<jar jarfile="${jar_filename}"
+    	basedir="../../../../../../classes"
+			includes="soars/plugin/visualshell/grid3/**"
+		/>
+
+		<!-- copy jar file -->
+		<copy file="${jar_filename}"
+		todir="../../../../../../../Work/5.0/soars/bin/function/grid3/module"/>
+
+	</target>
+
+	<!-- clean -->
+	<target name="clean" depends="init">
+		<delete file="${jar_filename}" />
+	</target>
+
+</project>

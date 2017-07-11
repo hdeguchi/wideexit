@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="decompressor" default="create" basedir=".">
+
+	<!--init property-->
+	<target name="init" >
+		<property name="jar_filename" value="../decompressor.jar"/>
+		<property name="manifest_filename" value="mc.mf"/>
+		<property name="main_class" value="soars.tool.grid.decompressor.main.Application"/>
+	</target>
+
+	<!-- create -->
+	<target name="create" depends="init">
+
+		<!-- create manifest file -->
+		<manifest file="${manifest_filename}">
+			<attribute name="Main-Class" value="${main_class}"/>
+		</manifest>
+
+		<!-- create jar file -->
+		<jar jarfile="${jar_filename}"
+			manifest="${manifest_filename}"
+			basedir="../../../../../../classes"
+			includes="soars/tool/grid/decompressor/**, soars/common/**"
+		/>
+
+		<!-- remove manifest file -->
+		<delete file="${manifest_filename}" />
+
+		<!-- copy jar file -->
+		<copy file="${jar_filename}"
+		todir="../../../../../../../Work/5.0/soars/bin/utility/grid/decompressor"/>
+
+	</target>
+
+	<!-- clean -->
+	<target name="clean" depends="init">
+		<delete file="${jar_filename}" />
+	</target>
+
+</project>

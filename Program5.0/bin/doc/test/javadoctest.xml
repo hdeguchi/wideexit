@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="javadoc">
+<target name="javadoc">
+
+	<delete dir="../../../doc/javadoc/test" />
+
+	<javadoc destdir="../../../doc/javadoc/test" author="true"  use="true" version="true"
+		nodeprecated="false" nodeprecatedlist="false" noindex="false"
+		additionalparam="-encoding UTF-8 -charset UTF-8"
+		access="public" source="1.5" nonavbar="false" notree="false" splitindex="true">
+		
+		<!-- <link href="http://java.sun.com/j2se/1.5.0/ja/docs/ja/api/" /> -->
+		<link href="http://java.sun.com/j2se/1.5.0/docs/api" />
+		<doctitle>SOARS VisualShell</doctitle>
+		<sourcepath path="../../../src" />
+		<package name="soars.tool.*" />
+		<!-- <package name="soars.application.visualshell.object.role.base.rule.base" /> -->
+	</javadoc>
+</target>
+</project>

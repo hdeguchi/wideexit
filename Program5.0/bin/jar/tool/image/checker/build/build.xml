@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="imagechecker" default="create" basedir=".">
+
+	<!--init property-->
+	<target name="init" >
+		<property name="jar_filename1" value="../imagechecker.jar"/>
+		<property name="jar_filename2" value="../imagechecker.bin"/>
+		<property name="manifest_filename" value="mc.mf"/>
+		<property name="main_class1" value="soars.tool.image.checker.launcher.main.Application"/>
+		<property name="main_class2" value="soars.tool.image.checker.body.main.Application"/>
+		<property name="runtime_jar_filename" value="../../../library/spring/spring.jar ../../../library/common/commons-logging-1.1.jar"/>
+	</target>
+
+	<!-- create -->
+	<target name="create" depends="init">
+
+		<!-- create manifest file -->
+		<manifest file="${manifest_filename}">
+			<attribute name="Main-Class" value="${main_class1}"/>
+		</manifest>
+
+		<!-- create jar file -->
+		<jar jarfile="${jar_filename1}"
+			manifest="${manifest_filename}"
+    	basedir="../../../../../../classes"
+			includes="soars/tool/image/checker/launcher/**, soars/common/**"
+		/>
+
+		<!-- remove manifest file -->
+		<delete file="${manifest_filename}" />
+
+		<!-- create manifest file -->
+		<manifest file="${manifest_filename}">
+			<attribute name="Main-Class" value="${main_class2}"/>
+			<attribute name="Class-Path" value="${runtime_jar_filename}"/>
+		</manifest>
+
+		<!-- create jar file -->
+		<jar jarfile="${jar_filename2}"
+			manifest="${manifest_filename}"
+    	basedir="../../../../../../classes"
+			includes="soars/tool/image/checker/body/**, soars/common/**"
+		/>
+
+		<!-- remove manifest file -->
+		<delete file="${manifest_filename}" />
+
+		<!-- copy jar file -->
+		<copy file="${jar_filename1}"
+		todir="../../../../../../../Work/5.0/soars/bin/utility/image/checker"/>
+		<copy file="${jar_filename2}"
+		todir="../../../../../../../Work/5.0/soars/bin/utility/image/checker"/>
+
+	</target>
+
+	<!-- clean -->
+	<target name="clean" depends="init">
+		<delete file="${jar_filename1}" />
+		<delete file="${jar_filename2}" />
+	</target>
+
+</project>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="animator" default="create" basedir=".">
+
+	<!--init property-->
+	<target name="init" >
+		<property name="jar_filename" value="../animator.jar"/>
+		<property name="manifest_filename" value="mc.mf"/>
+		<property name="main_class" value="soars.application.animator.main.Application"/>
+		<property name="runtime_jar_filename" value="../function/chart/module/chart.jar ../library/chart/plot.jar chart.jar plot.jar"/>
+	</target>
+
+	<!-- create -->
+	<target name="create" depends="init">
+
+		<!-- create manifest file -->
+	 	<manifest file="${manifest_filename}">
+			<attribute name="Main-Class" value="${main_class}"/>
+			<attribute name="Class-Path" value="${runtime_jar_filename}"/>
+	 	</manifest>
+
+		<!-- create jar file -->
+		<jar jarfile="${jar_filename}"
+			manifest="${manifest_filename}"
+			basedir="../../../../../classes"
+			includes="soars/application/animator/**, soars/common/**"
+		/>
+
+		<!-- remove manifest file -->
+		<delete file="${manifest_filename}" />
+
+		<!-- copy jar file -->
+		<copy file="${jar_filename}"
+		todir="../../../../../../Work/5.0/soars/bin/program"/>
+		<copy file="${jar_filename}"
+		todir="../../../../../../Work/5.0/soars/bin/utility/animator/runner/animation/lib"/>
+		<!-- <copy file="${jar_filename}"
+		todir="../../../../../../Work/5.0/tepco/lib"/> -->
+
+	</target>
+
+	<!-- clean -->
+	<target name="clean" depends="init">
+		<delete file="${jar_filename}" />
+	</target>
+
+</project>

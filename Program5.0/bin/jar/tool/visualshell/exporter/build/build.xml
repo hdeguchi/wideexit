@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<project name="exporter" default="create" basedir=".">
+
+	<!--init property-->
+	<target name="init" >
+		<property name="manifest_filename" value="mc.mf"/>
+		<property name="jar_filename1" value="../visualshellexporter.jar"/>
+		<property name="runtime_jar_filename1" value="visualshell.jar"/>
+		<property name="jar_filename2" value="../exporter.jar"/>
+		<property name="main_class" value="soars.tool.visualshell.exporter.test.Application"/>
+		<property name="runtime_jar_filename2" value="visualshellexporter.jar"/>
+	</target>
+
+	<!-- create -->
+	<target name="create" depends="init">
+
+		<!-- create manifest file -->
+		<manifest file="${manifest_filename}">
+			<attribute name="Class-Path" value="${runtime_jar_filename1}"/>
+		</manifest>
+
+		<!-- create jar file -->
+		<jar jarfile="${jar_filename1}"
+			manifest="${manifest_filename}"
+    	basedir="../../../../../../classes"
+			includes="soars/tool/visualshell/exporter/export/**"
+		/>
+
+		<!-- remove manifest file -->
+		<delete file="${manifest_filename}" />
+
+		<!-- copy jar file -->
+		<copy file="${jar_filename1}"
+		todir="../../../../../../../Work/5.0/soars/bin/program"/>
+		<copy file="${jar_filename1}"
+		todir="../../../../../../../Work/5.0/soars/bin/function/org.soars.pack/lib"/>
+		<copy file="${jar_filename1}"
+		todir="../../../../../../../ApplicationBuilder/5.0/org.soars.pack-0.1/lib"/>
+		<copy file="${jar_filename1}"
+		tofile="../../../../../../../ApplicationBuilder/5.0/org.soars.pack-0.1/lib/visualshellexporter.jar-1"/>
+
+
+		<!-- create manifest file -->
+		<manifest file="${manifest_filename}">
+			<attribute name="Main-Class" value="${main_class}"/>
+			<attribute name="Class-Path" value="${runtime_jar_filename2}"/>
+		</manifest>
+
+		<!-- create jar file -->
+		<jar jarfile="${jar_filename2}"
+			manifest="${manifest_filename}"
+    	basedir="../../../../../../classes"
+			includes="soars/tool/visualshell/exporter/test/**, soars/common/**"
+		/>
+
+		<!-- remove manifest file -->
+		<delete file="${manifest_filename}" />
+
+		<!-- copy jar file -->
+		<copy file="${jar_filename2}"
+		todir="../../../../../../../Work/5.0/soars/bin/program"/>
+
+	</target>
+
+	<!-- clean -->
+	<target name="clean" depends="init">
+		<delete file="${jar_filename1}" />
+		<delete file="${jar_filename2}" />
+	</target>
+
+</project>
